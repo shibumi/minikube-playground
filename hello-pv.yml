@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-pv
+spec:
+  selector:
+    matchLabels:
+      app: hello-pv
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hello-pv
+    spec:
+      volumes:
+        - name: hello-pv-storage
+          persistentVolumeClaim:
+            claimName: pv-claim
+      containers:
+        - name: hello-pv
+          image: nginx
+          ports:
+            - containerPort: 80
+              name: "nginx"
+          volumeMounts:
+            - mountPath: "/usr/share/nginx/html"
+              name: hello-pv-storage
+

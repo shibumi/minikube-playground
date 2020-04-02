@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: hello-pv
+    labels:
+      app: hello-pv
+spec:
+  type: NodePort
+  ports:
+    - name: nginx
+      port: 8080
+      targetPort: 80
+  selector:
+    app: hello-pv
