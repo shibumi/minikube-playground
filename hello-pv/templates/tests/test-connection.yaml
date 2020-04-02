@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args:  ['{{ include "hello-pv.fullname" . }}:{{ .Values.service.port }}']
+      args:  ['{{ include "hello-pv.fullname" . }}:8080']
   restartPolicy: Never
