@@ -1,0 +1,11 @@
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          volumeName: pvc-prometheus-operator-1586196970-prometheus-0
+          accessModes: ["ReadWriteOnce"]
+          storageClassName: standard
+          resources:
+            requests:
+              storage: 5G
